@@ -56,7 +56,7 @@ login("lala", (res) => {
     });
 });
 
-// Pengunaan Promise
+// Pengunaan Promise 
 function login(username) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -112,3 +112,16 @@ login("lala").
     });
     });
 });
+
+//Pengunaan Async Await
+async function getManyData() {
+      const tryLogin = await login("lala");
+      console.log(tryLogin);
+      const dataTransaction = await getTransaction(tryLogin.id);
+      console.log(dataTransaction);
+      const detailTransaction = await getDetailTransaction(dataTransaction.transaction[0].id);
+      console.log(detailTransaction);
+  }
+  
+  getManyData();
+  
